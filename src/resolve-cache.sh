@@ -41,6 +41,11 @@ jq -r --arg file "$asset" '.assets[] | select(.name == $file) | .browser_downloa
 link="${data[0]}"
 hash="${data[1]}"
 
+if [[ -z "$hash" ]]; then
+	echo "::error::Couldn't get release info for tag $tag"
+	exit 1
+fi
+
 echo "-- Hash of the needed asset: $hash"
 echo "-- Download link: $link"
 
