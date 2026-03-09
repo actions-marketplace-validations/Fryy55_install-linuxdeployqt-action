@@ -1,10 +1,10 @@
 if [[ "$CACHE_HIT" == "true" ]]; then
-	echo '----- Cache hit. Skipping installation -----'
+	echo '-- Cache hit. Skipping installation'
 else
 	if [[ "$INPUT_CACHE" == "true" ]]; then
-		echo "----- Cache miss. Downloading to $INSTALL_PATH -----"
+		echo "-- Cache miss. Downloading to $INSTALL_PATH"
 	else
-		echo "----- Ignoring cache. Downloading to $INSTALL_PATH -----"
+		echo "-- Ignoring cache. Downloading to $INSTALL_PATH"
 	fi
 
 	mkdir -p $INSTALL_PATH
@@ -15,7 +15,7 @@ else
 	chmod 777 ./linuxdeployqt
 fi
 
-echo "----- Adding $INSTALL_PATH to PATH----- "
+echo "-- Adding $INSTALL_PATH to PATH"
 echo $INSTALL_PATH >> $GITHUB_PATH
 
-echo '----- Successfully installed linuxdeployqt -----'
+echo '-- Successfully installed linuxdeployqt'

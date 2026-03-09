@@ -4,7 +4,7 @@ else
 	tag=$INPUT_TAG
 fi
 
-echo "----- Using $tag as a release tag -----"
+echo "-- Using $tag as a release tag"
 
 
 if [[ -z "$INPUT_ASSET" ]]; then
@@ -14,7 +14,7 @@ if [[ -z "$INPUT_ASSET" ]]; then
 		elif [[ "$RUNNER_ARCH" == "ARM64" ]]; then
 			arch="aarch64"
 		else
-			echo "::error::----- Unsupported runner ISA ($RUNNER_ARCH). Exiting -----"
+			echo "::error::Unsupported runner ISA ($RUNNER_ARCH). Exiting"
 			exit 1
 		fi
 	else # `$INPUT_ARCH` has a value
@@ -23,7 +23,7 @@ if [[ -z "$INPUT_ASSET" ]]; then
 		elif [[ "$INPUT_ARCH" == "arm64" || "$INPUT_ARCH" == "arm" ]]; then
 			arch="aarch64"
 		else
-			echo "::error::----- Unknown ISA ($INPUT_ARCH). Exiting -----"
+			echo "::error::Unknown ISA ($INPUT_ARCH). Exiting"
 			exit 1
 		fi
 	fi
@@ -33,7 +33,7 @@ else
 	asset=$INPUT_ASSET
 fi
 
-echo "----- Using $asset as an asset -----"
+echo "-- Using $asset as an asset"
 
 readarray -t data < <(curl -sf -XGET "https://api.github.com/repos/probonopd/linuxdeployqt/releases/tags/$tag" | \
 jq -r --arg file "$asset" '.assets[] | select(.name == $file) | .browser_download_url, (.digest | ltrimstr("sha256:"))')
@@ -41,8 +41,8 @@ jq -r --arg file "$asset" '.assets[] | select(.name == $file) | .browser_downloa
 link="${data[0]}"
 hash="${data[1]}"
 
-echo "----- Hash of the needed asset: $hash -----"
-echo "----- Download link: $link -----"
+echo "-- Hash of the needed asset: $hash"
+echo "-- Download link: $link"
 
 echo "hash=$hash" >> $GITHUB_OUTPUT
 echo "link=$link" >> $GITHUB_OUTPUT

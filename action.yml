@@ -24,7 +24,7 @@ runs:
     - name: Verify platform
       shell: bash
       if: ${{ runner.os != 'Linux' }}
-      run: echo "::warning::----- This Action only works on Linux. Nothing will be done for ${{ runner.os }} -----"
+      run: echo "::warning::This Action only works on Linux. Nothing will be done for ${{ runner.os }}"
 
     - name: Resolve cache
       id: resolve_cache
