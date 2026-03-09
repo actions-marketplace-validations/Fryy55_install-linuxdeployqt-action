@@ -11,7 +11,7 @@ inputs:
     required: false
     default: true
   tag:
-    description: 'Release tag of linuxdeployqt to download from. "continuous" by default'
+    description: "Release tag of linuxdeployqt to download from. `continuous` by default"
     required: false
     default: 'continuous'
   asset:

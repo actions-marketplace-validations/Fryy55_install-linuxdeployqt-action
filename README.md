@@ -14,7 +14,7 @@ Inputs:
 - `cache`
   - Whether or not to cache a tool on the runner. `true` by default
 - `tag`
-  - Release tag of linuxdeployqt to download from. "continuous" by default
+  - Release tag of linuxdeployqt to download from. `continuous` by default
 - `asset`
   - Filename of the asset to download from a release with a tag. Note that using this will *ignore* the `arch` input
 
