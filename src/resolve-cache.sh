@@ -31,6 +31,7 @@ if [[ -z "$INPUT_ASSET" ]]; then
 	asset="linuxdeployqt-continuous-$arch.AppImage"
 else
 	asset=$INPUT_ASSET
+	echo "-- Custom asset detected! Architecture will be ignored"
 fi
 
 echo "-- Using $asset as an asset"
