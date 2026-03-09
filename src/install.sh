@@ -10,7 +10,7 @@ else
 	mkdir -p $INSTALL_PATH
 	cd $INSTALL_PATH
 
-	wget -q $DOWNLOAD_LINK
+	wget  $DOWNLOAD_LINK
 	mv ./*.AppImage linuxdeployqt
 	chmod 777 ./linuxdeployqt
 fi
