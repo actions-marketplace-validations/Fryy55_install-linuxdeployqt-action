@@ -39,7 +39,7 @@ runs:
       # outputs: hash, link
 
     - name: Check cache
-      if: ${{ runner.os == 'Linux' && inputs.cache }}
+      if: ${{ runner.os == 'Linux' && inputs.cache == 'true' }}
       id: check_cache
       uses: actions/cache@v5
       with:
